@@ -1,13 +1,4 @@
-function countBarcode(barcodes) {
-  return barcodes.reduce((tmpCountDict, barcode) => {
-    if (barcode in tmpCountDict) {
-      tmpCountDict[barcode] += 1;
-    } else {
-      tmpCountDict[barcode] = 1;
-    }
-    return tmpCountDict;
-  }, {});
-}
+
 
 function createReceipt(barcodes) {
   let productDict = {};
@@ -44,6 +35,17 @@ function createReceipt(barcodes) {
   }, 0);
 
   return receipt;
+}
+
+function countBarcode(barcodes) {
+  return barcodes.reduce((tmpCountDict, barcode) => {
+    if (barcode in tmpCountDict) {
+      tmpCountDict[barcode] += 1;
+    } else {
+      tmpCountDict[barcode] = 1;
+    }
+    return tmpCountDict;
+  }, {});
 }
 
 function loadAllProduct() {
