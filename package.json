@@ -1,0 +1,22 @@
+{
+  "name": "oocl2020-pos-machine",
+  "version": "1.0.0",
+  "description": "A cash register (POS) system is used in the store for settlement of the store. This cashier will settle and print the receipt (Receipt) according to the item(Item) in the customer's shopping cart (Cart) at the time of settlement.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangmou37/oocl2020-pos-machine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangmou37/oocl2020-pos-machine/issues"
+  },
+  "homepage": "https://github.com/huangmou37/oocl2020-pos-machine#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
