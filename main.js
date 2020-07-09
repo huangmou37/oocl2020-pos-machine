@@ -1,4 +1,3 @@
-
 function countBarcode(barcodes) {
   return barcodes.reduce((tmpCountDict, barcode) => {
     if (barcode in tmpCountDict) {
@@ -16,9 +15,9 @@ function createReceipt(barcodes) {
     productDict[product.id] = product;
   });
 
-  // if (barcodes.some(barcode => !(barcode in productDict))) {
-  //   throw 'invalid barcode'
-  // }
+  if (barcodes.some(barcode => !(barcode in productDict))) {
+    throw new Error('invalid barcode');
+  }
 
   let barcodeCountDict = countBarcode(barcodes);
 
