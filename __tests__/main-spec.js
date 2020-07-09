@@ -89,3 +89,13 @@ it('should print formatted receipt to console when print receipt given [0001, 00
       + '------------------------------------------------------------\n'
       + 'Price: 10');
 });
+
+it('should print error message to console when print receipt given non-existing barcodes', () => {
+  let barcodes = ['aaaa'];
+
+  console.info = jest.fn();
+
+  main.printReceipt(barcodes);
+
+  expect(console.info).toHaveBeenCalledWith('[ERROR]: invalid barcode');
+});

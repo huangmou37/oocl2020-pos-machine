@@ -1,6 +1,13 @@
 
 function printReceipt(barcodes) {
-  let receipt = createReceipt(barcodes);
+
+  let receipt;
+  try {
+    receipt = createReceipt(barcodes);
+  } catch (e) {
+    console.info('[ERROR]: invalid barcode');
+    return;
+  }
 
   let renderedReceipt = renderReceipt(receipt);
 
