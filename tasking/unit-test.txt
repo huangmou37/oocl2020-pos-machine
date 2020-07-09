@@ -1,0 +1,86 @@
+# test case of countBarcode
+
+given: ['0001', '0002', '0001']
+when: countBarcode
+then: return
+{
+  '0001': 2,
+  '0002': 1
+}
+
+====================================
+
+# test case of calculateReceipt
+
+given: ['0001', '0002', '0001']
+when: calculateReceipt
+then: return
+{
+  receiptItems: [
+    {
+      name: 'Coca Cola',
+      totalPrice: 6,
+      quantity: 2
+    },
+    {
+      name: 'Diet Coke',
+      totalPrice: 4,
+      quantity: 1
+    }
+  ],
+  price: 10
+}
+
+given: ['aaaa']
+when: calculateReceipt
+then: throw 'invalid barcode'
+
+====================================
+
+# test case of renderReceipt
+
+given: {
+  receiptItems: [
+    {
+      name: 'Coca Cola',
+      totalPrice: 6,
+      quantity: 2
+    },
+    {
+      name: 'Diet Coke',
+      totalPrice: 4,
+      quantity: 1
+    }
+  ],
+  price: 10
+}
+when: renderReceipt
+then: return
+'
+Receipts
+------------------------------------------------------------
+Coca Cola                       6          2
+Diet Coke                       4          1
+------------------------------------------------------------
+Price: 10
+'
+
+===================================
+
+ # test case of printReceipt
+
+given: ['0001', '0002', '0001']
+when: printReceipt
+then: print below to browser console
+'
+Receipts
+------------------------------------------------------------
+Coca Cola                       6          2
+Diet Coke                       4          1
+------------------------------------------------------------
+Price: 10
+'
+
+given: ['aaaa']
+when: printReceipt
+then: print '[ERROR]: invalid barcode' to browser console
