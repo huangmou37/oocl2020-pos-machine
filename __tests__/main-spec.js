@@ -72,3 +72,20 @@ it('should return formatted receipt string when render receipt given a receipt',
       + '------------------------------------------------------------\n'
       + 'Price: 10');
 });
+
+// test case of printReceipt
+
+it('should print formatted receipt to console when print receipt given [0001, 0002, 0001]', () => {
+  let barcodes = ['0001', '0002', '0001'];
+
+  console.info = jest.fn();
+
+  main.printReceipt(barcodes);
+
+  expect(console.info).toHaveBeenCalledWith('Receipts\n'
+      + '------------------------------------------------------------\n'
+      + 'Coca Cola    6    2\n'
+      + 'Diet Coke    4    1\n'
+      + '------------------------------------------------------------\n'
+      + 'Price: 10');
+});

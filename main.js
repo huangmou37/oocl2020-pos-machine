@@ -1,4 +1,12 @@
 
+function printReceipt(barcodes) {
+  let receipt = createReceipt(barcodes);
+
+  let renderedReceipt = renderReceipt(receipt);
+
+  console.info(renderedReceipt);
+}
+
 function renderReceipt(receipt) {
   let rowSep = '------------------------------------------------------------\n';
   let renderedReceipt = 'Receipts\n' + rowSep;
@@ -79,6 +87,7 @@ function loadAllProduct() {
 }
 
 module.exports = {
+  printReceipt,
   renderReceipt,
   createReceipt,
   countBarcode
