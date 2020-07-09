@@ -43,3 +43,32 @@ it('should throw error when create receipt given non-existing barcode', () => {
     main.createReceipt(barcodes);
   }).toThrow();
 });
+
+//  test case of renderReceipt
+
+it('should return formatted receipt string when render receipt given a receipt', () => {
+  let receipt = {
+    receiptItems: [
+      {
+        name: 'Coca Cola',
+        totalPrice: 6,
+        quantity: 2
+      },
+      {
+        name: 'Diet Coke',
+        totalPrice: 4,
+        quantity: 1
+      }
+    ],
+    price: 10
+  };
+
+  let renderedReceipt = main.renderReceipt(receipt);
+
+  expect(renderedReceipt).toEqual('Receipts\n'
+      + '------------------------------------------------------------\n'
+      + 'Coca Cola    6    2\n'
+      + 'Diet Coke    4    1\n'
+      + '------------------------------------------------------------\n'
+      + 'Price: 10');
+});

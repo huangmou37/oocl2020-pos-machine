@@ -1,4 +1,19 @@
 
+function renderReceipt(receipt) {
+  let rowSep = '------------------------------------------------------------\n';
+  let renderedReceipt = 'Receipts\n' + rowSep;
+
+  let colSep = '    ';
+  receipt.receiptItems.forEach(item => {
+    renderedReceipt += (item.name + colSep + item.totalPrice + colSep + item.quantity + '\n');
+  });
+
+  renderedReceipt += rowSep;
+
+  renderedReceipt += ('Price: ' + receipt.price);
+
+  return renderedReceipt;
+}
 
 function createReceipt(barcodes) {
   let productDict = {};
@@ -64,6 +79,7 @@ function loadAllProduct() {
 }
 
 module.exports = {
+  renderReceipt,
   createReceipt,
   countBarcode
 };
